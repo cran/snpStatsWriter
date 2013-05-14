@@ -121,6 +121,54 @@ write.simple <- function(X,a1,a2,
   return(c(nrow(X), ncol(X)))
 }
 
+##' Simple wrapper to write.simple to write files in SNPHAP format
+##'
+##' If not allele codes are given, a1 and a2 will be set to 1 and 2 for all SNPs
+##' @title Write SNPHAP files
+##' @inheritParams write.simple
+##' @return No return value, but has the side effect of writing specified output
+##' file.
+##' @author Chris Wallace
+#'@export
+#'@examples
+#'
+#'data(testdata,package="snpStats")
+#'A.small <- Autosomes[1:6,1:10]
+#'f <- tempfile()
+#'## write in suitable format for snphap
+#'write.snphap(A.small, file=f)
+#'unlink(f)
+#'
+write.snphap <- function(X, a1=NULL, a2=NULL, file) {  
+  if(is.null(a1) || is.null(a2)) {
+    nsnps <- ncol(X)
+    a1 <- rep("1",nsnps)
+    a2 <- rep("2",nsnps)
+  }
+  valid.num <- as.character(1:2)
+  valid.nuc <- c("A","C","G","T")
+  coding <- "numeric"
+  a1 <- as.character(a1)
+  a2 <- as.character(a2)
+  alleles <- c(unique(a1),unique(a2))
+  if(!all(alleles %in% valid.num)) {
+    coding <- "nucleotide"
+    if(!all(alleles %in% valid.nuc)) {
+      warning("detected nucleotide coding, but invalid alleles found.  Will recode to A/T.  To avoid this, please use write.simple(), but note that snphap recognises only 0/1/2 or A/C/G/T/0 coding.")
+      which.bad <- which(!(a1 %in% valid.nuc | a2 %in% valid.nuc))
+      anames <- colnames(X)
+      for(i in which.bad) {
+        cat("recoding SNP",i,":",anames[i],"from",a1[i],"/",a2[i]," -> A / T.\n")
+        a1[i] <- "A"
+        a2[i] <- "T"
+      }
+    }
+  }  
+  write.simple(X, a1=a1, a2=a2, gsep=" ",
+               nullallele='0', file=file,
+               write.sampleid=FALSE)
+}
+
 ################################################################################
 
 ## mach requires 3 output files

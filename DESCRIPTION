@@ -1,8 +1,8 @@
 Package: snpStatsWriter
 Type: Package
 Title: Flexible writing of snpStats objects to flat files
-Version: 1.0.2
-Date: 2012-10-29
+Version: 1.5-1
+Date: 2013-05-14
 Author: Chris Wallace
 Maintainer: Chris Wallace <chris.wallace@cimr.cam.ac.uk>
 Description: Write snpStats objects to disk in formats suitable for
@@ -13,6 +13,9 @@ License: GPL
 LazyLoad: yes
 Collate: 'snpStatsWriter-package.R' 'write.R'
 OS_type: unix
-Packaged: 2013-01-28 16:55:00 UTC; chrisw
+Suggests: knitr
+VignetteBuilder: knitr
+Packaged: 2013-05-15 10:17:58 UTC; chrisw
+NeedsCompilation: yes
 Repository: CRAN
-Date/Publication: 2013-01-28 19:36:52
+Date/Publication: 2013-05-16 17:25:23

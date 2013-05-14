@@ -1,0 +1,79 @@
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{snpStatsWriter vignette}
+-->
+
+# snpStatsWriter
+
+<font color="grey">
+*Chris Wallace // [web](http://www-gene.cimr.cam.ac.uk/staff/wallace) // [email](mailto:chris.wallace at cimr.cam.ac.uk)*  
+</font>
+
+
+This is a package to write snpStats objects to disk in formats
+suitable for reading by snphap, phase, mach, IMPUTE, beagle, and
+(almost) anything else that expects a rectangular format.
+
+We will load a small dataset included in the snpStats package
+
+```{r}
+library(snpStatsWriter)
+data(testdata,package="snpStats")
+A.small <- Autosomes[1:6,1:10]
+nsnps <- ncol(A.small)
+```
+
+and write it to disk in lots of formats.
+
+## snphap
+
+```{r}
+f <- tempfile()
+write.snphap(A.small, file=f)
+head(read.table(f,sep="\t"))
+unlink(f)
+```
+
+## mach
+
+```{r}
+pf <- tempfile() ## pedigree file
+mf <- tempfile() ## marker file
+write.mach(A.small, a1=rep("1",nsnps), a2=rep("2",nsnps), pedfile=pf, mfile=mf)
+head(read.table(mf))
+head(read.table(pf))
+unlink(pf)
+unlink(mf)
+```
+
+## impute
+
+```{r}
+pf <- tempfile()
+write.impute(A.small, a1=rep("1",nsnps), a2=rep("2",nsnps), bp=1:nsnps, pedfile=pf)
+head(read.table(pf))
+unlink(pf)
+```
+
+## beagle
+
+```{r}
+gf <- tempfile() ## genotype file
+mf <- tempfile() ## marker file
+write.beagle(A.small, a1=rep("1",nsnps), a2=rep("2",nsnps), bp=1:nsnps, gfile=gf, mfile=mf)
+head(read.table(gf,header=TRUE))
+head(read.table(mf))
+unlink(gf)
+unlink(mf)
+```
+
+## phase/fastPhase
+
+NB phase input is a little different to most other formats!
+
+```{r}
+f <- tempfile()
+write.phase(A.small, file=f)
+head(scan(f,what=""))
+unlink(f)
+```

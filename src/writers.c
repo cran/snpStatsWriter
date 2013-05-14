@@ -90,7 +90,7 @@ void write_simple(char *x, char **a1, char **a2, int *bp, int *dobp,
   int nrow = *N;
   int ncol = *M;
   //  char *eol = "\n";
-  char *na = "??";
+  //  char *na = "??";
   int i=0, j=0, ij=0;
   FILE * outfile;
   outfile = fopen(*file, "a");
@@ -147,8 +147,8 @@ void write_phase(char *x, char **a1, char **a2, char **file, int *N, int *M,
   int ncol = *M;
   char *sep = " ";
   //  char *eol = "\n";
-  char *na = "??";
-  char Nch[8];
+  //  char *na = "??";
+  //  char Nch[8];
   FILE * outfile;
   outfile = fopen(*file, "w");
   if (!outfile) {
@@ -248,7 +248,7 @@ void write_beagle(char *x, char **a1, char **a2, int *bp, int *trait,
   int ntrait = *Ntrait;
   char *sep = " ";
   //  char *eol = "\n";
-  char *na = "??";
+  //  char *na = "??";
   int i=0, j=0, ij=0;
   FILE * outfile_geno;
   FILE * outfile_markers;
@@ -312,7 +312,7 @@ void write_mach(char *x, char **a1, char **a2, char **file,
   int ncol = *M;
   char *sep = " ";
   //  char *eol = "\n";
-  char *na = "??";
+  //  char *na = "??";
   int i=0, j=0, ij=0;
   FILE * outfile;
   outfile = fopen(*file, "w");
@@ -372,7 +372,7 @@ void write_impute(char *x, char **a1, char **a2, int *bp, char **file, int *N, i
   int ncol = *M;
   char *sep = " ";
   //  char *eol = "\n";
-  char *na = "??";
+  //  char *na = "??";
   int i=0, j=0, ij=0;
   FILE * outfile;
   outfile = fopen(*file, "w");
