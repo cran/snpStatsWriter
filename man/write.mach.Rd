@@ -5,17 +5,29 @@
   write.mach(X, a1, a2, pedfile, mfile,
     pedigree = rownames(X), member = rep(1, nrow(X)),
     father = rep(0, nrow(X)), mother = rep(0, nrow(X)),
-    sex = rep("M", nrow(X)))
+    sex = rep("M", nrow(X)), snp.names = colnames(X))
 }
 \arguments{
-  \item{pedfile,mfile}{Output file names.
-  \code{pedfile}=pedigree file, \code{mfile}=marker file.}
+  \item{pedfile}{Output pedigree file name.}
 
-  \item{pedigree,member,father,mother,sex}{Optional
+  \item{mfile}{Output marker file name.}
+
+  \item{pedigree}{Optional
   pedigree/member/father/mother/sex indentifier vectors,
   same order as rows in snpStats object.  If missing,
   pedigree is set to rownames(X) and the others default to
   unrelated males}
+
+  \item{member}{See pedigree}
+
+  \item{father}{See pedigree}
+
+  \item{mother}{See pedigree}
+
+  \item{sex}{See pedigree}
+
+  \item{snp.names}{optional SNP names to include in the
+  marker map file.  Defaults to colnames(X).}
 
   \item{X}{SnpMatrix object}
 

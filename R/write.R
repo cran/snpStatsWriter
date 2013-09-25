@@ -178,8 +178,14 @@ write.snphap <- function(X, a1=NULL, a2=NULL, file) {
 ##' 
 #' @export
 ##' @inheritParams write.simple
-##' @param pedfile,mfile Output file names.  \code{pedfile}=pedigree file, \code{mfile}=marker file.
-##' @param pedigree,member,father,mother,sex Optional pedigree/member/father/mother/sex indentifier vectors, same order as rows in snpStats object.  If missing, pedigree is set to rownames(X) and the others default to unrelated males
+##' @param pedfile Output pedigree file name.
+##' @param mfile Output marker file name.  
+##' @param pedigree Optional pedigree/member/father/mother/sex indentifier vectors, same order as rows in snpStats object.  If missing, pedigree is set to rownames(X) and the others default to unrelated males
+##' @param member See pedigree
+##' @param father See pedigree
+##' @param mother See pedigree
+##' @param sex See pedigree
+##' @param snp.names optional SNP names to include in the marker map file.  Defaults to colnames(X).
 ##' 
 ##' @return No return value, but has the side effect of writing specified output
 ##' files.
@@ -203,8 +209,11 @@ write.mach <- function(X,a1,a2,pedfile,mfile,
                        member=rep(1,nrow(X)),
                        father=rep(0,nrow(X)),
                        mother=rep(0,nrow(X)),
-                       sex=rep("M",nrow(X))) {
+                       sex=rep("M",nrow(X)),
+                       snp.names=colnames(X)) {
   check.args(X,a1,a2)
+  if(length(snp.names) != ncol(X))
+    stop("snp.names must have length == ncol(X)")
   res <- .C("write_mach", X@.Data, as.character(a1), as.character(a2),
             as.character(pedfile),
             as.character(pedigree), as.character(member), as.character(father),
@@ -212,7 +221,7 @@ write.mach <- function(X,a1,a2,pedfile,mfile,
             as.integer(nrow(X)),
             as.integer(ncol(X)), rownames(X),
             colnames(X), get.eol(),PACKAGE="snpStatsWriter")
-  cat(paste("M",colnames(X)),file=mfile,sep="\n")
+  cat(paste("M",snp.names),file=mfile,sep="\n")
   return(c(nrow(X), ncol(X)))
 }
 
@@ -253,7 +262,7 @@ write.impute <- function(X,a1,a2,bp,pedfile,snp.id=NULL) {
   res <- .C("write_impute", X@.Data, as.character(a1), as.character(a2),
             as.integer(bp), as.character(pedfile), as.integer(nrow(X)),
             as.integer(ncol(X)), rownames(X),
-            colnames(X), snp.id, get.eol(),PACKAGE="snpStatsWriter")
+            colnames(X), as.character(snp.id), get.eol(),PACKAGE="snpStatsWriter")
   return(c(nrow(X), ncol(X)))
 }
 

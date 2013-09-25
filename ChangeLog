@@ -1,5 +1,11 @@
 2013-05-14  Chris Wallace  <chris.wallace@cimr.cam.ac.uk>
 
+	* v1.5-3
+	added README.md to .Rbuildignore
+	 Modified write.mach to allow specification of non-default SNP names 
+
+2013-05-14  Chris Wallace  <chris.wallace@cimr.cam.ac.uk>
+
 	* v1.5
 	added vignette
 

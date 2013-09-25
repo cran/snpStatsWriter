@@ -197,7 +197,24 @@ suitable for reading by snphap, phase, mach, IMPUTE, beagle, and
 <p>We will load a small dataset included in the snpStats package</p>
 
 <pre><code class="r">library(snpStatsWriter)
-data(testdata, package = &quot;snpStats&quot;)
+</code></pre>
+
+<pre><code>## Loading required package: snpStats
+</code></pre>
+
+<pre><code>## Loading required package: survival
+</code></pre>
+
+<pre><code>## Loading required package: splines
+</code></pre>
+
+<pre><code>## Loading required package: Matrix
+</code></pre>
+
+<pre><code>## Loading required package: lattice
+</code></pre>
+
+<pre><code class="r">data(testdata, package = &quot;snpStats&quot;)
 A.small &lt;- Autosomes[1:6, 1:10]
 nsnps &lt;- ncol(A.small)
 </code></pre>
