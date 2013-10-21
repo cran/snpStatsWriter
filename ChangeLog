@@ -1,3 +1,14 @@
+2013-10-21  Chris Wallace  <chris.wallace@cimr.cam.ac.uk>
+
+	* v1.5-5
+	* R/write.R (write.sbams): added write.sbams function
+
+2013-10-14  Chris Wallace  <chris.wallace@cimr.cam.ac.uk>
+
+	* v1.5-4
+	Removed inst/doc/vignette.Rmd, use vignettes/vignette.Rmd as per
+	Brian Ripley's email.
+
 2013-05-14  Chris Wallace  <chris.wallace@cimr.cam.ac.uk>
 
 	* v1.5-3

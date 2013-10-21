@@ -1,6 +1,6 @@
 \name{write.simple}
 \alias{write.simple}
-\title{Flexible writing of snpStats objects to flat files}
+\title{Fast and flexible writing of snpStats objects to flat files}
 \usage{
   write.simple(X, a1, a2, file, fsep = "\t", gsep = "",
     nullallele = "N", write.header = TRUE,
@@ -39,10 +39,10 @@
   specified output files.
 }
 \description{
-  Different genetics phasing programs (beagle, mach,
-  impute, phase/fastPhase, snphap, etc) have different
-  requirements for input files.  These functions aim to
-  make creating these files from a SnpMatrix object
+  Different genetics phasing and analysis programs (beagle,
+  mach, impute, snptest, phase/fastPhase, snphap, etc) have
+  different requirements for input files.  These functions
+  aim to make creating these files from a SnpMatrix object
   straightfoward.
 }
 \details{
