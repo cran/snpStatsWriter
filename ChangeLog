@@ -1,5 +1,10 @@
 2013-10-21  Chris Wallace  <chris.wallace@cimr.cam.ac.uk>
 
+	* v1.5-6
+	* src/write.c (write_phase): fixed bug in defintion of astr
+
+2013-10-21  Chris Wallace  <chris.wallace@cimr.cam.ac.uk>
+
 	* v1.5-5
 	* R/write.R (write.sbams): added write.sbams function
 

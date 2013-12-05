@@ -1,12 +1,12 @@
-930b095ae63913f81ab7fc46578bd840 *ChangeLog
-6fbf4f74b1c3791e798f9ec1e25e1907 *DESCRIPTION
+a04817c83c4b924adfa2432b6ab08ffc *ChangeLog
+7cca05589bea9e7777655922825e9d4e *DESCRIPTION
 c999a9e120af5023ad64d013a0059a34 *NAMESPACE
 a2ff501a0513609949b8c7fff9116a72 *R/snpStatsWriter-package.R
 d1d1695b7b29d37a602518c93249b6dd *R/write.R
 00db8d95bcba110cb3864fcd778515e3 *build/vignette.rds
-65aa7b4ef619c61448503f1b076c7291 *inst/doc/vignette.R
+82a8ccf3a4dc6754baff23111015a0a2 *inst/doc/vignette.R
 fe17ff5841e6ba7679960a5b810368ee *inst/doc/vignette.Rmd
-c3538d408e06d4161f1c76b32f59754f *inst/doc/vignette.html
+0ea78670f07bdb484d0fa153f9ffbbe8 *inst/doc/vignette.html
 c1814f8242712c9e7984300a4ab6a762 *man/snpStatsWriter-package.Rd
 02dd1d808e8c67b790c51d9c76666b9d *man/write.beagle.Rd
 3bdd63ef5a87c314fca1f681dedb5220 *man/write.impute.Rd
@@ -15,5 +15,5 @@ de147d25143555f7a23bc173f66a2996 *man/write.phase.Rd
 ca2a380895d0d5f500e86ccc2fba7aec *man/write.sbams.Rd
 4ef37453592f7d74233b75de68ffbbe9 *man/write.simple.Rd
 0754835bf1fbf6627bb8682729f32443 *man/write.snphap.Rd
-d8bfb32a9cd21b4759d7255381ec00db *src/writers.c
+a90e7da48b700da03f3c0c3fa96fb9d7 *src/writers.c
 fe17ff5841e6ba7679960a5b810368ee *vignettes/vignette.Rmd

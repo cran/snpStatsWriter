@@ -179,7 +179,7 @@ void write_phase(char *x, char **a1, char **a2, char **file, int *N, int *M,
   fputs(*eol,outfile);
 
   // genotypes - 3 lines per individual
-  char astr1[ncol], astr2[ncol];  // to hold current allele strings
+  char astr1[ncol+1], astr2[ncol+1];  // to hold current allele strings
   astr1[ncol] = '\0';
   astr2[ncol] = '\0';
   for(int i=0; i<nrow; i++) {
